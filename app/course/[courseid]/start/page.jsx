@@ -32,7 +32,7 @@ const CourseStart = ({ params }) => {
         <div>
             {/* chapterlist sidebar */}
             <div className=" fixed md:w-64 hidden md:block max-h-screen border-r shadow-sm overflow-y-auto p-4">
-                <h2 className='font-md text-lg bg-primary p-5 text-white'>{course?.courseOutput?.courseName}</h2>
+                <h2 className='font-md text-lg bg-primary p-5 text-white rounded-md'>{course?.courseOutput?.courseName}</h2>
                 <div className="">
                     {course?.courseOutput?.chapters.map((chapter,index)=>(
                         <div key={index} className={`cursor-pointer hover:bg-green-100 ${selectedChapter?.chapterName == chapter?.chapterName && "bg-green-100"}`} 
