@@ -44,7 +44,7 @@ function SideBar() {
   return (
     
     <div className='fixed  h-full md:w-64 p-6 shadow-md max-h-screen'>
-      <Image src={'/ai.png'} width={30} height={10} alt='logo'/>
+      <Image src={'/ai1.png'} width={30} height={10} alt='logo'/>
       <hr className="my-5" />
       <ul>
         {Menu.map((item,index)=>(
