@@ -11,7 +11,7 @@ export const CourseList = pgTable('courselist',{
     createdBy:varchar('createdBy').notNull(),
     userName:varchar('userName'),
     userProfileImage:varchar(' userProfileImage'),
-    courseBanner:varchar('courseBanner').default('/boo4.jpg'),
+    courseBanner:varchar('courseBanner').default('/book4.jpg'),
     publish:boolean('publish').default(false),
     credits: varchar('credits')
 })
