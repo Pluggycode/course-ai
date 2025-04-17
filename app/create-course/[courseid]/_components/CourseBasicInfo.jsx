@@ -59,7 +59,7 @@ const CourseBasicInfo = ({course,refreshData,edit=true}) => {
           <h2 className='font-bold text-primary flex gap-1 mt-1'><HiOutlinePuzzlePiece className='mt-1'/>{course?.category}</h2>
           {!edit &&<Link href={'/course/'+course?.courseId+'/start'}><Button className="w-full mt-2">Start</Button></Link>}
         </div>
-        <div className="rounded-md shadow-md border">
+        <div className="rounded-md shadow-md border-5">
           <label htmlFor="upload-image">
           <Image src={ selectedFile?selectedFile:"/boo4.jpg"} width={300} height={300} className='w-full rounded-xl h-[300px] object-cover cursor-pointer' />
           {edit && <input type="file" id='upload-image' className='opacity-0' onChange={onFileSelected}/>}
