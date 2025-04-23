@@ -35,7 +35,7 @@ const CourseStart = ({ params }) => {
                 <h2 className='font-md text-lg bg-primary p-5 text-white rounded-md'>{course?.courseOutput?.courseName}</h2>
                 <div className="">
                     {course?.courseOutput?.chapters.map((chapter,index)=>(
-                        <div key={index} className={`cursor-pointer hover:bg-purple-100 ${selectedChapter?.chapterName == chapter?.chapterName && "bg-blue-300"}`} 
+                        <div key={index} className={`cursor-pointer hover:bg-purple-100 ${selectedChapter?.chapterName == chapter?.chapterName && "bg-purple-100"}`} 
                         onClick={() => {setSelectedChapter(chapter);
                             getSelectedChapterContent(index) }}>
                             <ChapterListCard chapter={chapter} index={index} />
