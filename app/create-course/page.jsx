@@ -120,8 +120,8 @@ const CreateCourse = () => {
                         <div className={`bg-gray-200 p-3 rounded-full text-white ${activeIndex>=index&&'bg-purple-300'}`} >{item.icon}</div>
                         <h2 className={`hidden md:block md:text-sm`}>{item.name}</h2>
                     </div>
-                   {index!=StepperOption?.length-1 &&<div className={`h-1 w-[50px] md:w-[100px] rounded-full lg:w-[170px] bg-gray-300
-                    ${activeIndex>index &&  'bg-purple-300'}`}></div>}
+                   {index!=StepperOption?.length-1 &&<div className={`h-1 w-[50px] md:w-[100px] rounded-full lg:w-[170px] bg-gray-500
+                    ${activeIndex>index &&  'bg-purple-500'}`}></div>}
                     </div>
 
                 ))}
