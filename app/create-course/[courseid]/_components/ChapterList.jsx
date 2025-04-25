@@ -11,7 +11,7 @@ const ChapterList = ({ course,refreshData,edit=true }) => {
         {course?.courseOutput?.chapters.map((chapter,index) => [
           <div className="border p-5 rounded-lg mb-2 shadow-md flex items-center justify-between">
           <div className="flex gap-4 items-center ">
-            <h2 className='bg-primary flex-none  h-10 w-10 rounded-full text-center p-2'>{index+1}</h2>
+            <h2 className='bg-primary flex-none text-white h-10 w-10 rounded-full text-center p-2'>{index+1}</h2>
             <div className="">
               <h2 className='font-medium text-lg'>{chapter.chapterName} {edit &&<EditChapters course={course} index={index} refreshData={() => refreshData(true)}/>} </h2>
               <p className='text-sm text-gray-500'>{chapter.about}</p>
