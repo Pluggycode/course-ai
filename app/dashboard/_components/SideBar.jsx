@@ -58,7 +58,8 @@ function SideBar() {
         ))}
       </ul>
       <div className="absolute bottom-10 w-[80%] ">
-        <Progress value={(userCourseList?.length/5)*100} className="bg-gradient-to-r from-green-400 to-sky-400 text-white animate-gradient-move"/>
+        <Progress value={(userCourseList?.length/5)*100} className="bg-gradient-to-br from-primary to-blue-300
+    bg-[length:200%_200%] animate-gradient-move  text-white"/>
         <h2 className='text-sm my-2'>{userCourseList?.length} out 5 course is created</h2>
         <h2 className='text-xs text-gray-500'>Upgrade your plan for unLimited course generation</h2>
       </div>
