@@ -50,7 +50,7 @@ function SideBar() {
         {Menu.map((item,index)=>(
           <Link href={item.path}>
             <div className={`flex items-center gap-2 text-gray-500 p-3 cursor-pointer hover:bg-gray-300 te rounded-lg mb-2 border-white
-          ${item.path==path && 'bg-gradient-to-br from-green-400 to-blue-400 bg-[length:200%_200%] animate-gradient-move  text-white'}`}>
+          ${item.path==path && 'bg-gradient-to-br from-primary to-blue-400 bg-[length:200%_200%] animate-gradient-move  text-white'}`}>
             <h2 className='text-center ml-15'>{item.name}</h2>
           </div>
           </Link>
