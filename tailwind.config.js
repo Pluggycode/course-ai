@@ -45,13 +45,35 @@ module.exports = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: '#08ff00',
+  				DEFAULT: '#121B22',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
-  				DEFAULT: '#000058',
+  				DEFAULT: '#25D366',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
+			text1:{
+				DEFAULT: '#E9EDEF',
+  				foreground: 'hsl(var(--secondary-foreground))'
+			},
+			header:{
+				DEFAULT: '#0B141A',
+  				foreground: 'hsl(var(--secondary-foreground))'
+			},
+			layout:{
+				DEFAULT: '#0A1014',
+  				foreground: 'hsl(var(--secondary-foreground))'
+			},
+			card:{
+				DEFAULT: '#005C4B',
+  				foreground: 'hsl(var(--secondary-foreground))'
+			},
+			button:{
+				DEFAULT: '#09631c',
+				foreground: 'hsl(var(--secondary-foreground))'
+
+			},
+			
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'

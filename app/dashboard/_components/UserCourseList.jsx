@@ -28,7 +28,7 @@ const UserCourseList = () => {
   }
   return (
     <div>
-      <h2 className='font-bold text-medium mt-4'>My AI-Courses</h2>
+      <h2 className='font-bold text-medium mt-4 text-[#E9EDEF]'>My AI-Courses</h2>
       <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-3 mt-2 rounded-md">
         {courseList?.length>0?courseList?.map((course,index)=> (
           <CourseCard course={course} key={index} refreshdata={() => getUserCourse()}/>

@@ -14,7 +14,7 @@ const DashboardLayout = ({ children }) => {
 
         <UserCourseListContext.Provider value={{userCourseList, setUserCourseList}}>
             <PayPalScriptProvider options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}>
-        <div className="">
+        <div className="bg-[#121B22]">
             <div className="md:w-64 hidden md:block">
                 <SideBar />
             </div>

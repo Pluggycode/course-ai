@@ -43,22 +43,22 @@ function SideBar() {
 
   return (
     
-    <div className='fixed  h-full md:w-64 p-6 shadow-md max-h-screen'>
-      <Image src={'/ai.png'} width={30} height={10} alt='logo'/>
-      <hr className="my-5" />
+    <div className='fixed  h-full md:w-64 p-6 shadow-[#25D366] max-h-screen bg-[#0B141A] border border-[#0B141A] shadow-xl'>
+      <Image src={'/ai1.png'} width={30} height={10} alt='logo'/>
+      <hr className="my-5 border border-[#25D366]" />
       <ul>
         {Menu.map((item,index)=>(
           <Link href={item.path}>
-          <div className={`flex items-center gap-2 text-gray-500 p-3 cursor-pointer hover:bg-gray-300 te rounded-lg mb-2 border-white
-          ${item.path==path && 'bg-gradient-to-br from-green-400 to-blue-400 bg-[length:200%_200%] animate-gradient-move  text-white'}`}>
+          <div className={`flex items-center gap-2 text-gray-500 p-3 cursor-pointer hover:bg-[#2A3942] te rounded-lg mb-2 border-[#2E3B45] border
+          ${item.path==path && 'border-[#25D366] border bg-[#25D366] text-text1'}`}>
             <h2 className='text-center ml-15'>{item.name}</h2>
           </div>
           </Link>
         ))}
       </ul>
       <div className="absolute bottom-10 w-[80%] ">
-        <Progress value={(userCourseList?.length/5)*100} className="bg-gradient-to-r from-green-400 to-sky-400 text-white animate-gradient-move"/>
-        <h2 className='text-sm my-2'>{userCourseList?.length} out 5 course is created</h2>
+        <Progress value={(userCourseList?.length/5)*100} className="bg-secondary border border-secondary"/>
+        <h2 className='text-sm my-2 text-text1'>{userCourseList?.length} out 5 course is created</h2>
         <h2 className='text-xs text-gray-500'>Upgrade your plan for unLimited course generation</h2>
       </div>
     </div>
