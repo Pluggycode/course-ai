@@ -68,7 +68,7 @@ const Upgrade = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10 items-center justify-center">
         <div className="">
             {Options.map((option,index)=>(
-                <div key={index} className={`p-6 my-3 border bg-gradient-to-br from-green-400 to-blue-400 bg-[length:200%_200%] animate-gradient-move text-center rounded-lg
+                <div key={index} className={`p-6 my-3 border bg-gradient-to-br from-primary to-blue-300 bg-[length:200%_200%] animate-gradient-move text-center rounded-lg
                      text-white cursor-pointer hover:scale-105 transition-all
                     ${selectedOption==option.id&&'bg-black'}
                     `}

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 const Logout = () => {
   return (
-    <div className="mt-10 grid gap-5 justify-start bg-gradient-to-br from-green-500 to-blue-500
+    <div className="mt-10 grid gap-5 justify-start bg-gradient-to-br from-primary to-blue-300
     bg-[length:200%_200%] animate-gradient-move rounded-md p-20">
         <div className="grid  ">
           <div className="flex">

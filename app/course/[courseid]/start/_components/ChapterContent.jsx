@@ -27,7 +27,7 @@ const ChapterContent = ({chapter,content}) => {
         </div>
         <div className="">
             {content?.content?.map((item,index)=> (
-                <div className="p-5 bg-green-50 mb-5 rounded-lg">
+                <div className="p-5 bg-purple-100 mb-5 rounded-lg">
                     <h2 className='font-medium text-lg'>{item.title}</h2>
                     {/* <p className='whitespace-pre-wrap'>{item.description}</p> */}
                     <ReactMarkdown>{item.description}</ReactMarkdown>
