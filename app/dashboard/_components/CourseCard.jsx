@@ -46,7 +46,7 @@ function CourseCard({ course, refreshdata, displayUser = false }) {
         <p className='text-sm text-[#8696A0] my-1'>{course?.category}</p>
         <div className="flex items-center justify-between">
           <h2 className='flex gap-2 items-center p-1 border border-[#25D366] text-[#25D366] text-sm rounded-sm'><IoBookOutline />{course?.courseOutput?.noOfChapters} chapters</h2>
-          <h2 className='text-sm border  border-[#25D366] text-[#25D366] p-1 rounded-sm'>{course?.level}</h2>
+          <h2 className='text-sm border mt-2 border-[#25D366] text-[#25D366] p-1 rounded-sm'>{course?.level}</h2>k
         </div>
         {displayUser && <div className="flex gap-2 items-center mt-2">
           <Image src={course?.userProfileImage} width={25} height={25} className='rounded-full' />
