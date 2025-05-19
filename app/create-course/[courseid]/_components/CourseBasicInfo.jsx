@@ -51,15 +51,15 @@ const CourseBasicInfo = ({course,refreshData,edit=true}) => {
     console.log(file);
   }
   return (
-    <div className='p-10 border rounded-xl shadow-md mt-5'>
+    <div className='p-10 rounded-xl shadow-md mt-5 bg-[#1E2A33] hover:border hover:border-[#25D366]'>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="">
-          <h2 className='font-bold text-2xl '>{course?.courseOutput?.courseName} {edit &&<EditCourseBasicInfo course={course} refreshData={() => refreshData(true)}/>} </h2>
-          <p className='text-sm text-gray-400 mt-3'>{course?.courseOutput?.description}</p>
-          <h2 className='font-bold text-primary flex gap-1 mt-1'><HiOutlinePuzzlePiece className='mt-1'/>{course?.category}</h2>
-          {!edit &&<Link href={'/course/'+course?.courseId+'/start'}><Button className="w-full mt-2">Start</Button></Link>}
+          <h2 className='font-bold text-2xl text-[#25D366]'>{course?.courseOutput?.courseName} {edit &&<EditCourseBasicInfo course={course} refreshData={() => refreshData(true)}/>} </h2>
+          <p className='text-sm  text-text1 mt-3'>{course?.courseOutput?.description}</p>
+          <h2 className='font-bold flex gap-1 mt-1 text-gray-400'><HiOutlinePuzzlePiece className='mt-1'/>{course?.category}</h2>
+          {!edit &&<Link href={'/course/'+course?.courseId+'/start'}><Button className="w-full mt-20 bg-[#25D366]">Start</Button></Link>}
         </div>
-        <div className="rounded-md shadow-md border">
+        <div className="rounded-xl shadow-md hover:border hover:border-[#25D366] h-[300px] ">
           <label htmlFor="upload-image">
           <Image src={ selectedFile?selectedFile:"/boo4.jpg"} width={300} height={300} className='w-full rounded-xl h-[300px] object-cover cursor-pointer' />
           {edit && <input type="file" id='upload-image' className='opacity-0' onChange={onFileSelected}/>}

@@ -24,8 +24,8 @@ const Explore = () => {
   }
   return (
     <div>
-      <h2 className='font-bold text-3xl'>Explore More Projects</h2>
-      <p>Explore more projects build with AI by other users</p>
+      <h2 className='font-bold text-3xl  text-text1'>Explore More Projects</h2>
+      <p className='text-gray-500'>Explore more projects build with AI by other users</p>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
         {courseList?.map((course,index) => (
           <div className="">

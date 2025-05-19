@@ -117,11 +117,11 @@ const CreateCourse = () => {
                 {StepperOption.map((item,index)=>(
                     <div className="flex items-center">
                         <div className="flex flex-col items-center w-[150px] md:w-[100px] ">
-                        <div className={`bg-gray-200 p-3 rounded-full text-white ${activeIndex>=index&&'bg-purple-300'}`} >{item.icon}</div>
-                        <h2 className={`hidden md:block md:text-sm`}>{item.name}</h2>
+                        <div className={`bg-[#25D366] p-3 rounded-full  text-white ${activeIndex>=index&&'bg-[#25D366]'}`} >{item.icon}</div>
+                        <h2 className={`hidden md:block md:text-sm text-text1 mt-2`}>{item.name}</h2>
                     </div>
-                   {index!=StepperOption?.length-1 &&<div className={`h-1 w-[50px] md:w-[100px] rounded-full lg:w-[170px] bg-gray-500
-                    ${activeIndex>index &&  'bg-purple-500'}`}></div>}
+                   {index!=StepperOption?.length-1 &&<div className={`h-1 w-[50px] md:w-[100px] rounded-full lg:w-[170px] bg-gray-500 mb-4
+                    ${activeIndex>index &&  'bg-green-500'}`}></div>}
                     </div>
 
                 ))}
@@ -134,9 +134,9 @@ const CreateCourse = () => {
         {/* Next Previous Button */}
 
         <div className="flex justify-between mt-10">
-            <Button  variant='outline'  disabled={activeIndex==0} onClick={()=>setActiveIndex(activeIndex-1)}>Previous</Button>
-            {activeIndex<2&&<Button disabled={CheckStatus()}  onClick={()=> setActiveIndex(activeIndex+1)}>next</Button>}
-            {activeIndex==2 &&<Button disabled={CheckStatus()} onClick={()=> GenerateCourseLayout()}>Generate Course Layout</Button>}
+            <Button  disabled={activeIndex==0} onClick={()=>setActiveIndex(activeIndex-1)} className='bg-[#1E2A33] hover:bg-[#25D366] hover:border-primary text-text1 border border-[#25D366]'>Previous</Button>
+            {activeIndex<2&&<Button disabled={CheckStatus()}  onClick={()=> setActiveIndex(activeIndex+1)} className='border border-[#25D366] hover:bg-[#25D366] bg-[#1E2A33] hover:border-primary text-text1'>next</Button>}
+            {activeIndex==2 &&<Button disabled={CheckStatus()} onClick={()=> GenerateCourseLayout()} className='border border-[#25D366] hover:bg-[#25D366] bg-[#1E2A33] hover:border-primary '>Generate Course Layout</Button>}
         </div>
         </div>
         <LoadingDialog loading={Loading} />

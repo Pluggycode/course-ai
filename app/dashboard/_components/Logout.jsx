@@ -7,55 +7,95 @@ import { Button } from '@/components/ui/button';
 
 const Logout = () => {
   return (
-    <div className="mt-10 grid gap-5 justify-start bg-gradient-to-br from-primary to-blue-300
-    bg-[length:200%_200%] animate-gradient-move rounded-md p-20">
-        <div className="grid  ">
-          <div className="flex">
-          <Image src={'/favicon.ico'} width={40} height={40} alt='logo' className='bg-white'/>
-          <h2 className='mt-3 ml-2 text-white'>Magna AI.</h2>
-          </div>
-          <p className="mt-2">
-        Unlock personalized education with AI-driven course creation.Tailor your learning journey to fit your unique goals and pace...
+   <div className="min-h-screen bg-[#0B141A] text-white px-6 py-10 md:px-20 lg:px-40">
+  {/* Header */}
+  <div className="flex items-center space-x-3 mb-6">
+    <Image src="/ai12.png" width={40} height={40} alt="logo" className="rounded-full" />
+    <h1 className="text-2xl font-bold text-[#25D366]">Magna AI</h1>
+  </div>
+
+  <p className="text-gray-300 text-sm mb-8">
+    Unlock personalized education with AI-driven course creation. Tailor your learning journey to fit your unique goals and pace.
+  </p>
+
+  {/* Privacy Policy */}
+  <div className="bg-[#1E2A33] p-8 rounded-lg shadow-lg">
+    <h2 className="text-2xl font-bold text-[#25D366] mb-4">Privacy Policy</h2>
+    <p className="text-gray-300 text-sm mb-6">Effective Date: <span className="italic">[Insert Date]</span></p>
+
+    {/* Section 1 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">1. Information We Collect</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        When you use Magna AI, we collect the following information:
+        <br />• Text Input: The text you provide for course creation using the Gemini API.
       </p>
-        </div> 
-        <div className=" gap-2">
-          <h2 className='text-2xl text-white font-bold'>COMPANY</h2>
-          <h3>Privacy Policy for Magna AI Effective Date: [Insert Date]</h3>
-          <h3 className='font-bold mt-2'>Introduction</h3>
-          <p>Magna AI,we is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our application.
-            By using Magna AI, you agree to the collection and use of information as outlined in this policy. <br/>
-            <h3 className='font-bold mt-2'>1. Information We Collect</h3>
-            When you use Magna AI, we collect the following information:<br />
-            Text Input: We collect the text input you provide when requesting the creation of a course.<br />
-            This information is collected solely to generate course content using the Gemini API.<br/>
-            <h3 className='font-bold mt-2'>2. How We Use Your Information</h3>
-            The data collected is used for the following purposes:<br/>
-            To generate a course based on the text input you provide.<br/>
-            To improve our services and user experience.<br/>
-            <h3 className='font-bold mt-2'>3. How We Share Your Information</h3>
-            We do not sell, rent, or share your personal information with third parties, except as necessary to provide you with the services of Magna AI. Specifically:We take reasonable steps to protect your information from unauthorized access, disclosure, or misuse. This includes using encryption and secure communication channels.
-            However, please be aware that no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information, we cannot guarantee its absolute security.
-            Gemini API: Your text input is processed through the Gemini API to create the course content. The information shared with this service is strictly limited to what is necessary for generating the course.<br/>
-            <h3 className='font-bold mt-2'>4. Data Security</h3>
-            We take reasonable steps to protect your information from unauthorized access, disclosure, or misuse. This includes using encryption and secure communication channels.<br />
-            However, please be aware that no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information, we cannot guarantee its absolute security.<br />
-            <h3 className='font-bold mt-2'>5. Your Rights</h3>
-            You have the following rights concerning your data:<br />
-            Access: You can request access to the information we collect about you.<br />
-            Correction: You can request corrections to any inaccuracies in your information.<br />
-            Deletion: You may request the deletion of your data, subject to any legal obligations we may have to retain it.<br />
-            <h3 className='font-bold mt-2'>6. Third-Party Links</h3>
-            Magna AI may contain links to third-party websites or services that are not operated by us. We are not responsible for the privacy practices of these third-party sites.<br/>
-            <h3 className='font-bold mt-2'>7. Changes to This Privacy Policy</h3>
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page, with the "Effective Date" updated accordingly.<br />
-            <h3 className='font-bold mt-2'>8. Contact Us</h3>
-            If you have any questions about this Privacy Policy, please contact us at:<br />
-            Email: [Inse] <br />
-
-            </p>
-
-          </div> 
     </div>
+
+    {/* Section 2 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">2. How We Use Your Information</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        We use collected data to:
+        <br />• Generate personalized courses.
+        <br />• Improve our services and user experience.
+      </p>
+    </div>
+
+    {/* Section 3 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">3. How We Share Your Information</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        We do not sell or rent your personal data. Information may be shared with:
+        <br />• Gemini API: Only the necessary data is passed to generate your course content.
+      </p>
+    </div>
+
+    {/* Section 4 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">4. Data Security</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        We use encryption and secure communication, but please note no method is 100% secure.
+      </p>
+    </div>
+
+    {/* Section 5 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">5. Your Rights</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        • Access: View data we’ve collected.
+        <br />• Correction: Fix inaccuracies.
+        <br />• Deletion: Request data removal (subject to legal requirements).
+      </p>
+    </div>
+
+    {/* Section 6 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">6. Third-Party Links</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        Magna AI may link to third-party websites. We are not responsible for their privacy practices.
+      </p>
+    </div>
+
+    {/* Section 7 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">7. Changes to This Privacy Policy</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        We may update this Privacy Policy from time to time. Updates will be posted here with a new "Effective Date".
+      </p>
+    </div>
+
+    {/* Section 8 */}
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold text-[#25D366] mb-2">8. Contact Us</h3>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        If you have any questions, please contact us at: <br />
+        <span className="text-[#25D366]">Email: [Insert Email]</span>
+      </p>
+    </div>
+  </div>
+</div>
+
   )
 }
 

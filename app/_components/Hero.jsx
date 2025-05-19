@@ -4,7 +4,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-b from-green-600 to-slate-900 h-screen overflow-hidden">
+    <section className="relative  h-screen overflow-hidden">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"

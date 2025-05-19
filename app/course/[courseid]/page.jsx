@@ -25,7 +25,7 @@ const Course = ({params}) => {
   return (
     <div>
       <Header />
-      <div className="px-10 p-10 md:px-20 lg:px-44">
+      <div className="px-10 p-10 md:px-20 lg:px-44 bg-[#121B22]">
        <CourseBasicInfo course={course} edit={false}/>
 
        <CourseDetails course={course} />

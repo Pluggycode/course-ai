@@ -31,11 +31,11 @@ const CourseStart = ({ params }) => {
     return (
         <div>
             {/* chapterlist sidebar */}
-            <div className=" fixed md:w-64 hidden md:block max-h-screen border-r shadow-sm overflow-y-auto p-4">
-                <h2 className='font-md text-lg bg-primary p-5 text-white rounded-md'>{course?.courseOutput?.courseName}</h2>
-                <div className="">
+            <div className=" fixed md:w-64 hidden md:block max-h-screen border-r shadow-sm overflow-y-auto bg-[#0B141A] p-4">
+                <h2 className='font-md text-lg p-5 text-text1 rounded-md'>{course?.courseOutput?.courseName}</h2>
+                <div className="border-primary border">
                     {course?.courseOutput?.chapters.map((chapter,index)=>(
-                        <div key={index} className={`cursor-pointer mt-3 hover:bg-purple-100 ${selectedChapter?.chapterName == chapter?.chapterName && "bg-purple-100"}`} 
+                        <div key={index} className={`cursor-pointer  mt-3 bg-[#1E2A33] rounded-lg mb-3 ${selectedChapter?.chapterName == chapter?.chapterName && "border-[#25D366] border bg-[#0a2f18] rounded-lg"}`} 
                         onClick={() => {setSelectedChapter(chapter);
                             getSelectedChapterContent(index) }}>
                             <ChapterListCard chapter={chapter} index={index} />

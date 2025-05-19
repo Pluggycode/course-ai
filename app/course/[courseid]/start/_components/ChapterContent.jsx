@@ -15,8 +15,8 @@ const opts = {
 
 const ChapterContent = ({chapter,content}) => {
   return (
-    <div className='p-10 '>
-        <h2 className='font-medium text-2xl'>{chapter?.chapterName}</h2>
+    <div className='p-10 bg-[#121B22]'>
+        <h2 className='font-medium text-2xl text-text1'>{chapter?.chapterName}</h2>
         <h2 className='text-gray-500'>{chapter?.about}</h2>
 
         {/* video */}
@@ -27,14 +27,14 @@ const ChapterContent = ({chapter,content}) => {
         </div>
         <div className="">
             {content?.content?.map((item,index)=> (
-                <div className="p-5 bg-purple-100 mb-5 rounded-lg">
-                    <h2 className='font-medium text-lg'>{item.title}</h2>
+                <div className="p-5 bg-[#1E2A33] mb-5 rounded-lg">
+                    <h2 className='font-medium text-lg text-[#25D366]'>{item.title}</h2>
                     {/* <p className='whitespace-pre-wrap'>{item.description}</p> */}
-                    <ReactMarkdown>{item.description}</ReactMarkdown>
+                    <ReactMarkdown className='text-text1'>{item.description}</ReactMarkdown>
                    {item?.code && <div className="p-4 bg-black text-white rounded-md mt-3">
-                    <pre>
+                        <pre>
                         <code>{item.code}</code>
-                    </pre>
+                        </pre>
                     </div>}
                 </div>
 

@@ -3,11 +3,25 @@ import { UserCourseListContext } from '@/app/_context/UserCourseList';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/nextjs'
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import { useRouter } from 'next/navigation';
+
+import React, { useContext, useEffect } from 'react'
+
 
 const AddCourse = () => {
     const {user} = useUser();
     const {userCourseList,setuserCourseList} = useContext(UserCourseListContext)
+    const router  = useRouter()
+
+    useEffect(()=>{
+      creditsCheck()
+    },[])
+
+    const creditsCheck = () => {
+      if (userCourseList.credits == 5){
+        router.push('/upgrade')
+      } 
+    }
   return (
     <div className='flex items-center justify-between'>
         <div className="">

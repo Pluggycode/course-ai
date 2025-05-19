@@ -80,8 +80,8 @@ const Course = ({ params }) => {
     }
 
     return (
-        <div className='mt-2 px-7 md:px-20 lg:px-44'>
-            <h2 className='font-bold text-center text-2xl '>Course Layout</h2>
+        <div className='mt-2 px-7 md:px-20 lg:px-44 '>
+            <h2 className='font-bold text-center text-2xl text-text1'>Course Layout</h2>
 
             <LoadingDialog loading={loading}/>
 
@@ -95,7 +95,7 @@ const Course = ({ params }) => {
             {/* list of chapters  */}
             <ChapterList  course={course} refreshData={() => getCourse()}/>
             
-            <Button className="my-10" onClick={GenerateChapterContent}>Generate Course Content</Button>
+            <Button className="my-10 hover:bg-[#1E2A33] border border-[#25D366] bg-[#25D366]" onClick={GenerateChapterContent}>Generate Course Content</Button>
         </div>
     )
 }
