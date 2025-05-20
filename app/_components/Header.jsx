@@ -13,7 +13,7 @@ const Header = () => {
     <header className='flex justify-between items-center p-5 shadow-md bg-header'>
       <Link href="/" className='flex items-center gap-2'>
         <Image src={'/ai12.png'} alt="Magna AI Logo" width={35} height={35} />
-        <span className="text-lg font-bold text-secondary">Magna AI</span>
+        <span className="text-lg font-bold text-text1">Magna AI</span>
       </Link>
 
       <div className="flex items-center gap-4">
