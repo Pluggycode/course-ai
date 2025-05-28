@@ -134,9 +134,9 @@ const CreateCourse = () => {
         {/* Next Previous Button */}
 
         <div className="flex justify-between mt-10">
-            <Button  disabled={activeIndex==0} onClick={()=>setActiveIndex(activeIndex-1)} className='bg-[#1E2A33] hover:bg-[#25D366] hover:border-primary text-text1 border border-[#25D366]'>Previous</Button>
-            {activeIndex<2&&<Button disabled={CheckStatus()}  onClick={()=> setActiveIndex(activeIndex+1)} className='border border-[#25D366] hover:bg-[#25D366] bg-[#1E2A33] hover:border-primary text-text1'>next</Button>}
-            {activeIndex==2 &&<Button disabled={CheckStatus()} onClick={()=> GenerateCourseLayout()} className='border border-[#25D366] hover:bg-[#25D366] bg-[#1E2A33] hover:border-primary '>Generate Course Layout</Button>}
+            <Button  disabled={activeIndex==0} onClick={()=>setActiveIndex(activeIndex-1)} className='hover:border hover:border-[#25D366] hover:bg-[#1E2A33] bg-[#25D366] text-text1'>Previous</Button>
+            {activeIndex<2&&<Button disabled={CheckStatus()}  onClick={()=> setActiveIndex(activeIndex+1)} className='hover:border hover:border-[#25D366] hover:bg-[#1E2A33] bg-[#25D366] text-text1'>next</Button>}
+            {activeIndex==2 &&<Button disabled={CheckStatus()} onClick={()=> GenerateCourseLayout()} className='hover:border hover:border-[#25D366] hover:bg-[#1E2A33] bg-[#25D366] text-text1 '>Generate Course Layout</Button>}
         </div>
         </div>
         <LoadingDialog loading={Loading} />

@@ -9,7 +9,6 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 const DashboardLayout = ({ children }) => {
 
     const [userCourseList, setUserCourseList ] = useState([]);
-
     return (
 
         <UserCourseListContext.Provider value={{userCourseList, setUserCourseList}}>

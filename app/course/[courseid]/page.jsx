@@ -9,15 +9,15 @@ import { eq } from 'drizzle-orm'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const Course = ({params}) => {
-  const [course,setCourse] = useState([]);
+const Course = ({ params, }) => {
+  const [course, setCourse] = useState([]);
 
   useEffect(() => {
     params && GetCourse();
-  },[params])
+  }, [params])
 
   const GetCourse = async () => {
-    const result = await db.select().from(CourseList).where(eq(CourseList.courseId,params?.courseid))
+    const result = await db.select().from(CourseList).where(eq(CourseList.courseId, params?.courseid))
     setCourse(result[0]);
     console.log(result);
   }
@@ -26,12 +26,15 @@ const Course = ({params}) => {
     <div>
       <Header />
       <div className="px-10 p-10 md:px-20 lg:px-44 bg-[#121B22]">
-       <CourseBasicInfo course={course} edit={false}/>
+        <CourseBasicInfo course={course} edit={false} />
 
-       <CourseDetails course={course} />
+        <CourseDetails course={course} />
 
-       <ChapterList course={course} edit={false}/>
-       </div>
+        <ChapterList
+          course={course}
+        />
+
+      </div>
     </div>
   )
 }

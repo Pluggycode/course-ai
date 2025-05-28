@@ -29,7 +29,7 @@ const CourseStart = ({ params }) => {
     }
 
     return (
-        <div>
+        <div className=''>
             {/* chapterlist sidebar */}
             <div className=" fixed md:w-64 hidden md:block max-h-screen border-r shadow-sm overflow-y-auto bg-[#0B141A] p-4">
                 <h2 className='font-md text-lg p-5 text-text1 rounded-md'>{course?.courseOutput?.courseName}</h2>

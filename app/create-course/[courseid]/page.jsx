@@ -38,7 +38,8 @@ const Course = ({ params }) => {
         setLoading(true);
         const chapters = course?.courseOutput?.chapters;
         chapters.forEach(async (chapter,index) => {
-            const PROMPT = 'Explain the concept in detail on topic:'+course?.name+',chapter:'+chapter?.chapterName+'in JSON format with List of array with field as title, description in detail, Code Example(<precode> Code format) if applicable';
+            const PROMPT = 'Explain the concept in Detail on Topic:'+course?.name+',Chapter:'+chapter?.chapterName+' in JSON Format with list of array with field as title, description in detail, Code Example(Code field in <precode> format) and If applicable, include a code example relevant to the explanation. Format it as a plain text string in the code field. DO NOT wrap it inside <pre>, <code>, or any other HTML tags. generate some MCQS based on the description having 1 questions and 4 options for each question.';
+            
             console.log(PROMPT);
             // if(index<3)
             //     {
