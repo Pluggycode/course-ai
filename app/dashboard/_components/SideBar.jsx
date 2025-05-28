@@ -37,7 +37,7 @@ function SideBar() {
       id: 4,
       name: 'About',
       icon: Info,
-      path: '/dashboard/about',
+      path: '/dashboard/logout',
     },
   ];
 
