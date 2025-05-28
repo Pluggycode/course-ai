@@ -20,6 +20,6 @@ export const Chapters = pgTable('chapters', {
     id:serial('id').primaryKey(),
     courseId:varchar('courseId').notNull(),
     chapterId:integer('chapterId').notNull(),
-    content:json ('content').notNull(),
+    content:json('content').notNull(),
     videoId: varchar('videoId').notNull()
 })

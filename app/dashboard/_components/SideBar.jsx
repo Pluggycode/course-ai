@@ -1,29 +1,18 @@
 'use client';
 import React, { useContext } from 'react';
 import Image from 'next/image';
-<<<<<<< HEAD
 import { HomeIcon, Layers, ShieldPlus, Info, LogOut } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
 import { UserCourseListContext } from '@/app/_context/UserCourseList';
 import { useClerk } from '@clerk/nextjs';
-=======
-import { HomeIcon, Layers, ShieldPlus, LogOut } from 'lucide-react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { Progress } from '@/components/ui/progress';
-import { UserCourseListContext } from '@/app/_context/UserCourseList';
->>>>>>> 84350a264313924dd15d9d9ed4dacd1a495de30d
 
 function SideBar() {
   const { userCourseList } = useContext(UserCourseListContext);
   const path = usePathname();
-<<<<<<< HEAD
   const router = useRouter();
   const { signOut } = useClerk();
-=======
->>>>>>> 84350a264313924dd15d9d9ed4dacd1a495de30d
 
   const Menu = [
     {
@@ -46,10 +35,9 @@ function SideBar() {
     },
     {
       id: 4,
-<<<<<<< HEAD
       name: 'About',
       icon: Info,
-      path: '/dashboard/logout',
+      path: '/dashboard/about',
     },
   ];
 
@@ -57,13 +45,6 @@ function SideBar() {
     await signOut();
     router.push('/');
   };
-=======
-      name: 'Logout',
-      icon: LogOut,
-      path: '/dashboard/logout',
-    },
-  ];
->>>>>>> 84350a264313924dd15d9d9ed4dacd1a495de30d
 
   return (
     <div className="fixed h-full md:w-64 p-6 max-h-screen bg-[#0B141A] border border-[#0B141A] shadow-xl">
@@ -94,10 +75,7 @@ function SideBar() {
           </button>
         </li>
       </ul>
-<<<<<<< HEAD
 
-=======
->>>>>>> 84350a264313924dd15d9d9ed4dacd1a495de30d
       <div className="absolute bottom-10 w-[80%]">
         <Progress value={(userCourseList?.length / 5) * 100} className="bg-secondary border border-secondary" />
         <h2 className="text-sm my-2 text-text1">
