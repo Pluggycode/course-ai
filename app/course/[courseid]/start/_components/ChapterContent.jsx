@@ -110,6 +110,7 @@ const ChapterContent = ({ chapter, content, chapterIndex, onMark, marked }) => {
           <span>Magna AI is speaking... please wait...</span>
         </div>
       )}
+      <Button className='bg-green-50'>mark complete</Button>
       <h2 className="font-medium text-2xl text-text1 mt-3">{chapter?.chapterName}</h2>
       <h2 className="text-gray-500">{chapter?.about}</h2>
 

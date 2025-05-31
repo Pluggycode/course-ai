@@ -6,7 +6,7 @@ import UserCourseList from './_components/UserCourseList'
 
 const page = () => {
   return (
-    <div className=''> 
+    <div className='bg-[#121B22]'> 
       <AddCourse />
       {/* Display List of Courses */}
       < UserCourseList/>
