@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }) => {
             <div className="md:w-64 hidden md:block">
                 <SideBar />
             </div>
-            <div className='md:ml-64 '>
+            <div className='md:ml-64 block'>
                 <Header />
                 <div className="p-10">{children}</div>
             </div>
