@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const Header = () => {
-  const { isSignedIn } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
 
   return (
     <header className='flex justify-between items-center p-5 shadow-md bg-header'>
@@ -17,20 +17,26 @@ const Header = () => {
       </Link>
 
       <div className="flex items-center gap-4">
-        {  isSignedIn &&
-        <Link href="/dashboard">
-          <Button className="bg-[#25D366]  text-text1 hover:bg-black">
-            dashboard
-          </Button>
-        </Link> || 
-        <Link href="/dashboard">
-          <Button className="bg-[#25D366]  text-text1 hover:bg-black">
-            Login
-          </Button>
-        </Link>
-        }
-        {isSignedIn &&
-          <UserButton afterSignOutUrl="/" />}
+        {isLoaded ? (
+          isSignedIn ? (
+            <>
+              <Link href="/dashboard">
+                <Button className="bg-[#25D366] text-text1 hover:bg-black">
+                  Dashboard
+                </Button>
+              </Link>
+              <UserButton afterSignOutUrl="/" />
+            </>
+          ) : (
+            <Link href="/sign-in">
+              <Button className="bg-[#25D366] text-text1 hover:bg-black">
+                Login
+              </Button>
+            </Link>
+          )
+        ) : (
+          <span className="text-sm text-gray-400">Loading...</span>
+        )}
       </div>
     </header>
   );

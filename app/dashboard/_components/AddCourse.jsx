@@ -1,36 +1,46 @@
 'use client'
-import { UserCourseListContext } from '@/app/_context/UserCourseList';
-import { Button } from '@/components/ui/button';
+import { UserCourseListContext } from '@/app/_context/UserCourseList'
+import { Button } from '@/components/ui/button'
 import { useUser } from '@clerk/nextjs'
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect } from 'react'
 
-
 const AddCourse = () => {
-    const {user} = useUser();
-    const {userCourseList,setuserCourseList} = useContext(UserCourseListContext)
-    const router  = useRouter()
+  const { user } = useUser()
+  const { userCourseList } = useContext(UserCourseListContext)
+  const router = useRouter()
 
-    useEffect(()=>{
-      creditsCheck()
-    },[])
+  const MAX_COURSES = 5;
+  const userReachedLimit = userCourseList?.length >= MAX_COURSES;
 
-    const creditsCheck = () => {
-      if (userCourseList.credits == 5){
-        router.push('/upgrade')
-      } 
+  const handleCreateCourse = () => {
+    if (userReachedLimit) {
+      router.push('/upgrade')
+    } else {
+      router.push('/create-course')
     }
+  }
+
   return (
     <div className='flex items-center justify-between'>
-        <div className="">
-        <h2 className='text-3xl text-[#E9EDEF]'>Hello, <span className='font-bold'>{user?.fullName}</span></h2>
-        <p className='text-sm text-[#8696A0]'>Create New course with Ai, share with friends and earn from it..</p>
-        </div>
-        <Link href={userCourseList>=4?'/dashboard/upgrade':'/create-course'}>
-        <Button className="hover:bg-black hover:border-spacing-2 bg-[#25D366]  text-white">+Create Ai Course</Button>
-        </Link>
+      <div>
+        <h2 className='text-3xl text-[#E9EDEF]'>
+          Hello, <span className='font-bold'>{user?.fullName}</span>
+        </h2>
+        <p className='text-sm text-[#8696A0]'>
+          Create a new course with AI, share it with friends, and earn from it.
+        </p>
+      </div>
+
+      <Button
+        onClick={handleCreateCourse}
+        disabled={userReachedLimit}
+        className={`text-white ${
+          userReachedLimit ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#25D366] hover:bg-black'
+        }`}
+      >
+        {userReachedLimit ? 'Limit Reached - Upgrade' : '+ Create AI Course'}
+      </Button>
     </div>
   )
 }

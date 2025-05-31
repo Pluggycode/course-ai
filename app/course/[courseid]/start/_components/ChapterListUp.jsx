@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { GoClock } from "react-icons/go";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { MdCheck } from 'react-icons/md';
-import EditChapters from './EditChapters';
+import EditChapters from '@/app/create-course/[courseid]/_components/EditChapters';
 import toast from 'react-hot-toast';
 import { Progress } from '@/components/ui/progress';
 
-const ChapterList = ({ course, edit = true }) => {
+const ChapterList = ({ course, edit = false }) => {
   const chapters = course?.courseOutput?.chapters || [];
   const [markedChapters, setMarkedChapters] = useState([]);
 
@@ -33,6 +33,12 @@ const ChapterList = ({ course, edit = true }) => {
       <h2 className="font-medium text-xl text-text1">Chapters</h2>
 
       {/* Progress Bar */}
+      <div className="mt-3">
+        <Progress value={progress} />
+        <p className="text-sm text-[#25D366] mt-1">
+          {completedCount} of {chapters.length} chapters completed ({Math.round(progress)}%)
+        </p>
+      </div>
 
       {/* Chapter List */}
       <div className="mt-2">
@@ -64,6 +70,17 @@ const ChapterList = ({ course, edit = true }) => {
               </div>
             </div>
 
+           {!markedChapters[index] ? (
+              <IoIosCheckmarkCircleOutline
+                className="h-10 w-10 text-white cursor-pointer hover:text-[#25D366] "
+                onClick={() => handleMark(index)}
+              />
+            ) : (
+              <div className="flex items-center gap-2">
+                <MdCheck className="h-10 w-10 text-green-400" />
+                <span className="text-green-400 text-sm">Completed</span>
+              </div>
+            )}
           </div>
         ))}
       </div>

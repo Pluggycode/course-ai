@@ -18,7 +18,7 @@ const opts = {
 
 const languageOptions = ['python', 'javascript', 'c', 'cpp', 'java', 'r'];
 
-const ChapterContent = ({ chapter, content }) => {
+const ChapterContent = ({ chapter, content, chapterIndex, onMark, marked }) => {
   const [language, setLanguage] = useState('python');
   const [userCode, setUserCode] = useState('');
   const [output, setOutput] = useState('');
@@ -110,7 +110,7 @@ const ChapterContent = ({ chapter, content }) => {
           <span>Magna AI is speaking... please wait...</span>
         </div>
       )}
-      <h2 className="font-medium text-2xl text-text1">{chapter?.chapterName}</h2>
+      <h2 className="font-medium text-2xl text-text1 mt-3">{chapter?.chapterName}</h2>
       <h2 className="text-gray-500">{chapter?.about}</h2>
 
       <div className="flex justify-center my-6">
@@ -170,7 +170,7 @@ const ChapterContent = ({ chapter, content }) => {
                   </div>
                 ))}
 
-            {item?.Code  && (
+            {item?.code  && (
               <div className="mt-4">
                 <label className="text-sm text-white mb-2 block">Select Language</label>
                 <select

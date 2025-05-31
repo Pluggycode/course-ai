@@ -18,4 +18,10 @@ export default [
         icon:"/lotus.png",
         prompt:""
     },
+    {
+        id:4,
+        name:'Cooking',
+        icon:'/cooking.jpg',
+        prompt:""
+    }
 ]

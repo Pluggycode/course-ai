@@ -8,6 +8,7 @@ import { CourseList } from '@/configs/Schema'
 import { eq } from 'drizzle-orm'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import ChapterListUp from'@/app/course/[courseid]/start/_components/ChapterListUp'
 
 const Course = ({ params, }) => {
   const [course, setCourse] = useState([]);
@@ -30,7 +31,7 @@ const Course = ({ params, }) => {
 
         <CourseDetails course={course} />
 
-        <ChapterList
+        <ChapterListUp
           course={course}
         />
 
