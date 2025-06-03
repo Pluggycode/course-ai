@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 export default function LandingPage() {
   return (
     <main className="min-h-screen text-gray-900 bg-primary">
-      <Header />
       <Hero />
 
       {/* Features */}
