@@ -37,7 +37,7 @@ const Hero = () => {
           Unlock personalized education with AI-driven course creation. Tailor your learning journey to fit your unique goals and pace.
         </p>
         <div className="mt-8 flex gap-3">
-          <Link href="/dashboard/create-course">
+          <Link href="/create-course">
             <Button className="px-8 py-3 bg-secondary text-text1 rounded-md hover:bg-black transition duration-200">
               Get Started
             </Button>
