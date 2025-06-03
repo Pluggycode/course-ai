@@ -10,7 +10,7 @@ const Header = () => {
   const { isSignedIn, isLoaded } = useUser();
 
   return (
-    <header className='flex justify-between items-center p-5 shadow-md bg-header'>
+    <header className="absolute top-0 left-0 w-full z-30 flex justify-between items-center p-5 bg-gray/01 ">
       <Link href="/" className='flex items-center gap-2'>
         <Image src={'/ai12.png'} alt="Magna AI Logo" width={35} height={35} />
         <span className="text-lg font-bold text-secondary">Magna AI</span>
@@ -22,7 +22,7 @@ const Header = () => {
             <>
               <Link href="/dashboard">
                 <Button className="bg-[#25D366] text-text1 hover:bg-black">
-                  Dashboard
+                  Dasbaord
                 </Button>
               </Link>
               <UserButton afterSignOutUrl="/" />
