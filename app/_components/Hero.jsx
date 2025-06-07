@@ -5,13 +5,9 @@ import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
 import Header from './Header';
 import BlurText from './Blurtext';
-import ShinyText from './ShinyButton';
 import GradientText from './GradientText'
-import { AnchorIcon, SearchIcon } from 'lucide-react';
 import SpotlightCard from './SpotlightCard';
-import RollingGallery from './RollingGallery'
 import DotGrid from './DotGrid';
-import CircularGallery from './CircularGallery'
 import ScrollVelocity from './ScrollVelocity';
 
 const Hero = () => {
