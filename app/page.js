@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import { Button } from "@/components/ui/button";
+import SplashCursor from './SplashCursor'
 
 
 export default function LandingPage() {
@@ -13,7 +14,7 @@ export default function LandingPage() {
       
 
       {/* How It Works */}
-      
+      <SplashCursor />
 
       {/* Footer */}
       <footer className="py-10 text-center text-sm text-gray-500 border-t">
