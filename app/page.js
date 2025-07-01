@@ -14,7 +14,7 @@ export default function LandingPage() {
       
 
       {/* How It Works */}
-      <SplashCursor />
+      
 
       {/* Footer */}
       <footer className="py-10 text-center text-sm text-gray-500 border-t">
