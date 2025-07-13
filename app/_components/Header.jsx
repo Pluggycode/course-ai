@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Button } from '@/components/ui/button';
 import { useUser, UserButton } from '@clerk/nextjs';
@@ -10,26 +10,28 @@ const Header = () => {
   const { isSignedIn, isLoaded } = useUser();
 
   return (
-    <header className="absolute top-0 left-0 w-full z-30 flex justify-between items-center p-5 bg-gray/01 ">
-      <Link href="/" className='flex items-center gap-2'>
-        <Image src={'/ai12.png'} alt="Magna AI Logo" width={35} height={35} />
-        <span className="text-lg font-bold text-white">Magna AI</span>
+    <header className="fixed top-0 left-0 w-full z-30 flex justify-between items-center px-4 py-3 md:px-8 bg-gray-900 shadow-md">
+      {/* Logo + Title */}
+      <Link href="/" className="flex items-center gap-2">
+        <Image src="/ai12.png" alt="Magna AI Logo" width={35} height={35} />
+        <span className="text-base md:text-lg font-bold text-white">Magna AI</span>
       </Link>
 
-      <div className="flex items-center gap-4">
+      {/* Navigation Buttons */}
+      <div className="flex items-center gap-2 flex-wrap">
         {isLoaded ? (
           isSignedIn ? (
             <>
               <Link href="/dashboard">
-                <Button className="bg-[#25D366] text-text1 hover:bg-black">
-                  Dasbaord
+                <Button className="bg-[#25D366] text-white text-sm md:text-base hover:bg-black">
+                  Dashboard
                 </Button>
               </Link>
               <UserButton afterSignOutUrl="/" />
             </>
           ) : (
             <Link href="/sign-in">
-              <Button className="bg-[#25D366] text-text1 hover:bg-black">
+              <Button className="bg-[#25D366] text-white text-sm md:text-base hover:bg-black">
                 Login
               </Button>
             </Link>
