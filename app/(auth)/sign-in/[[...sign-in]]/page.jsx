@@ -14,9 +14,14 @@ export default function Page() {
         <source src="/videos/my-videos.mp4" type="video/mp4" />
       </video>
 
-      {/* SignIn Form Centered */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <SignIn redirectUrl="/dashboard" />
+      {/* Optional: Semi-dark overlay for better readability */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
+
+      {/* Centered SignIn Form */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center p-4">
+        <div className="max-w-sm w-full bg-white/90 rounded-xl p-6 shadow-lg">
+          <SignIn redirectUrl="/dashboard" />
+        </div>
       </div>
     </div>
   );
