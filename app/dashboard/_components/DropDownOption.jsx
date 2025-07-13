@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import {
   DropdownMenu,
@@ -8,53 +10,55 @@ import {
 import { IoTrashOutline } from 'react-icons/io5';
 import {
   AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
+  AlertDialogTrigger,
   AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogFooter,
   AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogCancel,
+  AlertDialogAction,
 } from '@/components/ui/alert-dialog';
 
-const DropDownOption = ({ children, handleOnDelete }: { children: React.ReactNode; handleOnDelete: () => void }) => {
-  const [openAlert, setOpenAlert] = useState(false);
-
+const DropDownOption = ({
+  children,
+  handleOnDelete,
+}: {
+  children: React.ReactNode;
+  handleOnDelete: () => void;
+}) => {
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          {children}
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
         <DropdownMenuContent className="w-40">
-          <DropdownMenuItem onClick={() => setOpenAlert(true)} className="text-red-600 focus:bg-red-50">
-            <IoTrashOutline className="mr-2" /> Delete
-          </DropdownMenuItem>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <DropdownMenuItem className="text-red-600 focus:bg-red-50 cursor-pointer">
+                <IoTrashOutline className="mr-2" />
+                Delete
+              </DropdownMenuItem>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="max-w-md">
+              <AlertDialogHeader>
+                <AlertDialogTitle>Delete this course?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. It will permanently delete this course from your dashboard.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  className="bg-red-600 hover:bg-red-700 text-white"
+                  onClick={handleOnDelete}
+                >
+                  Yes, Delete
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </DropdownMenuContent>
       </DropdownMenu>
-
-      <AlertDialog open={openAlert} onOpenChange={setOpenAlert}>
-        <AlertDialogContent className="max-w-md">
-          <AlertDialogHeader>
-            <AlertDialogTitle>Delete this course?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. It will permanently delete this course from your dashboard.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-red-600 hover:bg-red-700 text-white"
-              onClick={() => {
-                handleOnDelete();
-                setOpenAlert(false);
-              }}
-            >
-              Yes, Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </>
   );
 };
