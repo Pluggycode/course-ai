@@ -1,102 +1,110 @@
-'use client'
-import React from 'react'
-import { SignOutButton,SignedIn, useUser } from '@clerk/nextjs';
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
-import { UserButton } from '@clerk/nextjs';
+import { SignOutButton, useUser } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 
 const Logout = () => {
+  const { user } = useUser();
+
   return (
-   <div className="min-h-screen bg-[#0B141A] text-white px-6 py-10 md:px-20 lg:px-40">
-  {/* Header */}
-  <div className="flex items-center space-x-3 mb-6">
-    <Image src="/ai12.png" width={40} height={40} alt="logo" className="rounded-full" />
-    <h1 className="text-2xl font-bold text-[#25D366]">Magna AI</h1>
-  </div>
+    <div className="min-h-screen bg-[#0B141A] text-white px-4 py-8 sm:px-6 md:px-12 lg:px-24">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/ai12.png"
+            width={40}
+            height={40}
+            alt="Magna AI Logo"
+            className="rounded-full"
+          />
+          <h1 className="text-2xl font-bold text-[#25D366]">Magna AI</h1>
+        </div>
+        {user && (
+          <SignOutButton>
+            <Button className="bg-[#25D366] text-primary hover:bg-white hover:text-[#25D366]">
+              Sign Out
+            </Button>
+          </SignOutButton>
+        )}
+      </div>
 
-  <p className="text-gray-300 text-sm mb-8">
-    Unlock personalized education with AI-driven course creation. Tailor your learning journey to fit your unique goals and pace.
-  </p>
-
-  {/* Privacy Policy */}
-  <div className="bg-[#1E2A33] p-8 rounded-lg shadow-lg">
-    <h2 className="text-2xl font-bold text-[#25D366] mb-4">Privacy Policy</h2>
-    <p className="text-gray-300 text-sm mb-6">Effective Date: <span className="italic">[Insert Date]</span></p>
-
-    {/* Section 1 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">1. Information We Collect</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        When you use Magna AI, we collect the following information:
-        <br />• Text Input: The text you provide for course creation using the Gemini API.
+      <p className="text-gray-300 text-sm mb-8 max-w-3xl">
+        Unlock personalized education with AI-driven course creation. Tailor your learning journey to fit your unique goals and pace.
       </p>
-    </div>
 
-    {/* Section 2 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">2. How We Use Your Information</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        We use collected data to:
-        <br />• Generate personalized courses.
-        <br />• Improve our services and user experience.
-      </p>
-    </div>
+      {/* Privacy Policy */}
+      <div className="bg-[#1E2A33] p-6 sm:p-8 rounded-lg shadow-md max-w-4xl">
+        <h2 className="text-2xl font-bold text-[#25D366] mb-4">Privacy Policy</h2>
+        <p className="text-gray-300 text-sm mb-6">
+          Effective Date: <span className="italic">[Insert Date]</span>
+        </p>
 
-    {/* Section 3 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">3. How We Share Your Information</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        We do not sell or rent your personal data. Information may be shared with:
-        <br />• Gemini API: Only the necessary data is passed to generate your course content.
-      </p>
-    </div>
-
-    {/* Section 4 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">4. Data Security</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        We use encryption and secure communication, but please note no method is 100% secure.
-      </p>
-    </div>
-
-    {/* Section 5 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">5. Your Rights</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        • Access: View data we’ve collected.
-        <br />• Correction: Fix inaccuracies.
-        <br />• Deletion: Request data removal (subject to legal requirements).
-      </p>
-    </div>
-
-    {/* Section 6 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">6. Third-Party Links</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        Magna AI may link to third-party websites. We are not responsible for their privacy practices.
-      </p>
-    </div>
-
-    {/* Section 7 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">7. Changes to This Privacy Policy</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        We may update this Privacy Policy from time to time. Updates will be posted here with a new "Effective Date".
-      </p>
-    </div>
-
-    {/* Section 8 */}
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#25D366] mb-2">8. Contact Us</h3>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        If you have any questions, please contact us at: <br />
-        <span className="text-[#25D366]">Email: [Insert Email]</span>
-      </p>
-    </div>
-  </div>
-</div>
-
-  )
-}
-
-export default Logout
+        {[
+          {
+            title: '1. Information We Collect',
+            content: (
+              <>
+                When you use Magna AI, we collect the following information:
+                <br />• Text Input: The text you provide for course creation using the Gemini API.
+              </>
+            ),
+          },
+          {
+            title: '2. How We Use Your Information',
+            content: (
+              <>
+                We use collected data to:
+                <br />• Generate personalized courses.
+                <br />• Improve our services and user experience.
+              </>
+            ),
+          },
+          {
+            title: '3. How We Share Your Information',
+            content: (
+              <>
+                We do not sell or rent your personal data. Information may be shared with:
+                <br />• Gemini API: Only the necessary data is passed to generate your course content.
+              </>
+            ),
+          },
+          {
+            title: '4. Data Security',
+            content:
+              'We use encryption and secure communication, but please note no method is 100% secure.',
+          },
+          {
+            title: '5. Your Rights',
+            content: (
+              <>
+                • Access: View data we’ve collected.
+                <br />• Correction: Fix inaccuracies.
+                <br />• Deletion: Request data removal (subject to legal requirements).
+              </>
+            ),
+          },
+          {
+            title: '6. Third-Party Links',
+            content:
+              'Magna AI may link to third-party websites. We are not responsible for their privacy practices.',
+          },
+          {
+            title: '7. Changes to This Privacy Policy',
+            content:
+              'We may update this Privacy Policy from time to time. Updates will be posted here with a new "Effective Date".',
+          },
+          {
+            title: '8. Contact Us',
+            content: (
+              <>
+                If you have any questions, please contact us at: <br />
+                <span className="text-[#25D366]">Email: [Insert Email]</span>
+              </>
+            ),
+          },
+        ].map((section, idx) => (
+          <div className="mb-6" key={idx}>
+            <h3 className="tex
