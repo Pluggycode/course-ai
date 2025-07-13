@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,13 +20,7 @@ import {
   AlertDialogAction,
 } from '@/components/ui/alert-dialog';
 
-const DropDownOption = ({
-  children,
-  handleOnDelete,
-}: {
-  children: React.ReactNode;
-  handleOnDelete: () => void;
-}) => {
+const DropDownOption = ({ children, handleOnDelete }) => {
   return (
     <>
       <DropdownMenu>
