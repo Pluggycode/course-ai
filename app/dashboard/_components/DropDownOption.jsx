@@ -1,64 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { IoTrashOutline } from "react-icons/io5";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { IoTrashOutline } from 'react-icons/io5';
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog"
-  
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 
+const DropDownOption = ({ children, handleOnDelete }: { children: React.ReactNode; handleOnDelete: () => void }) => {
+  const [openAlert, setOpenAlert] = useState(false);
 
-const DropDownOption = ({children,handleOnDelete}) => {
+  return (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          {children}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-40">
+          <DropdownMenuItem onClick={() => setOpenAlert(true)} className="text-red-600 focus:bg-red-50">
+            <IoTrashOutline className="mr-2" /> Delete
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
-    const [openAlert, setOpenAlert] = useState(false);
-    const onDeleteClick = () => {
-       
+      <AlertDialog open={openAlert} onOpenChange={setOpenAlert}>
+        <AlertDialogContent className="max-w-md">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete this course?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. It will permanently delete this course from your dashboard.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-red-600 hover:bg-red-700 text-white"
+              onClick={() => {
+                handleOnDelete();
+                setOpenAlert(false);
+              }}
+            >
+              Yes, Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
+  );
+};
 
-
-    }
-
-    return (
-        <div className="">
-        <DropdownMenu>
-            <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
-            <DropdownMenuContent>
-                <DropdownMenuItem onClick={() => setOpenAlert(true)}>
-                <div className="flex items-center gap-1"><IoTrashOutline />Delete</div>
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
-        <AlertDialog open={openAlert}>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-      <AlertDialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel onClick={()=> setOpenAlert(false)}>Cancel</AlertDialogCancel>
-      <AlertDialogAction onClick={() => {handleOnDelete();setOpenAlert(false)}}>Continue</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>
-
-        </div>
-    )
-}
-
-export default DropDownOption
+export default DropDownOption;
