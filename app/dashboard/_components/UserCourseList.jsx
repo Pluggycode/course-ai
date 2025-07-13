@@ -1,12 +1,12 @@
-'use client'
-import React, { useContext, useEffect, useState } from 'react'
-import { useUser } from '@clerk/nextjs'
-import { CourseList } from '@/configs/Schema'
-import { db } from '@/configs/db'
-import { eq } from 'drizzle-orm'
-import CourseCard from './CourseCard'
-import { UserCourseListContext } from '@/app/_context/UserCourseList'
-import { Mic } from 'lucide-react'
+'use client';
+import React, { useContext, useEffect, useState } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { CourseList } from '@/configs/Schema';
+import { db } from '@/configs/db';
+import { eq } from 'drizzle-orm';
+import CourseCard from './CourseCard';
+import { UserCourseListContext } from '@/app/_context/UserCourseList';
+import { Mic } from 'lucide-react';
 
 const UserCourseList = () => {
   const [courseList, setCourseList] = useState([]);
@@ -15,26 +15,35 @@ const UserCourseList = () => {
   const { userCourseList, setUserCourseList } = useContext(UserCourseListContext);
   const { user } = useUser();
 
-  // Fetch courses on load
+  // ✅ Fetch user courses
   useEffect(() => {
-    if (user) getUserCourse();
+    if (user?.primaryEmailAddress?.emailAddress) {
+      getUserCourse();
+    }
   }, [user]);
 
   const getUserCourse = async () => {
-    const result = await db
-      .select()
-      .from(CourseList)
-      .where(eq(CourseList?.createdBy, user?.primaryEmailAddress?.emailAddress));
-    setCourseList(result);
-    setFilteredCourses(result); // initially show all
-    setUserCourseList(result);
+    const email = user?.primaryEmailAddress?.emailAddress;
+    if (!email) return;
+
+    try {
+      const result = await db
+        .select()
+        .from(CourseList)
+        .where(eq(CourseList?.createdBy, email));
+      setCourseList(result);
+      setFilteredCourses(result);
+      setUserCourseList(result);
+    } catch (error) {
+      console.error("Failed to fetch user courses:", error);
+    }
   };
 
-  // Handle search with debounce
+  // ✅ Debounced search
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (searchTerm.trim() === '') {
-        setFilteredCourses(courseList); // show all if search is empty
+        setFilteredCourses(courseList);
       } else {
         const filtered = courseList.filter(course =>
           course?.name?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -46,8 +55,13 @@ const UserCourseList = () => {
     return () => clearTimeout(timeout);
   }, [searchTerm, courseList]);
 
-  // Optional: Voice search (Chrome only)
+  // ✅ Voice search
   const handleVoiceSearch = () => {
+    if (typeof window === 'undefined' || !('webkitSpeechRecognition' in window)) {
+      alert("Your browser doesn't support voice search.");
+      return;
+    }
+
     const recognition = new window.webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.lang = 'en-US';
@@ -57,12 +71,16 @@ const UserCourseList = () => {
       setSearchTerm(voiceInput);
     };
 
+    recognition.onerror = function (event) {
+      console.error('Speech recognition error:', event);
+    };
+
     recognition.start();
   };
 
   return (
     <div>
-      <h2 className='font-bold text-medium mt-4 text-[#E9EDEF]'>My AI-Courses</h2>
+      <h2 className="font-bold text-medium mt-4 text-[#E9EDEF]">My AI-Courses</h2>
 
       {/* Search input */}
       <div className="my-4 relative">
@@ -86,8 +104,8 @@ const UserCourseList = () => {
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course, index) => (
             <CourseCard
-              course={course}
               key={index}
+              course={course}
               refreshdata={getUserCourse}
             />
           ))
