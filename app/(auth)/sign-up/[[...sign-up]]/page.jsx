@@ -1,4 +1,4 @@
-import { SignIn, SignUp } from '@clerk/nextjs';
+import { SignUp } from '@clerk/nextjs';
 
 export default function Page() {
   return (
@@ -14,9 +14,14 @@ export default function Page() {
         <source src="/videos/my-videos.mp4" type="video/mp4" />
       </video>
 
-      {/* SignIn Form Centered */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <SignUp redirectUrl="/dashboard" />
+      {/* Optional: Dark overlay for better readability */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
+
+      {/* Centered SignUp Form */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center p-4">
+        <div className="max-w-sm w-full bg-white/90 rounded-xl p-6 shadow-lg">
+          <SignUp redirectUrl="/dashboard" />
+        </div>
       </div>
     </div>
   );
