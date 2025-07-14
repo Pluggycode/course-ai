@@ -14,7 +14,7 @@ const Header = () => {
       {/* Logo + Title */}
       <Link href="/" className="flex items-center gap-2">
         <Image src="/ai12.png" alt="Magna AI Logo" width={35} height={35} />
-        <span className="text-base md:text-lg font-bold text-white">Magna AI</span>
+        <span className="text-base md:text-lg font-bold text-white">Magna</span>
       </Link>
 
       {/* Navigation Buttons */}
